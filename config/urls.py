@@ -29,4 +29,5 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('accounts/', include('accounts.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
+    path('sewing/', include('sewing.urls', namespace='sewing'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

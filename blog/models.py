@@ -29,4 +29,4 @@ class Image(TimeStampedModel):
         "Image Address",
         always_update=False,
         populate_from="name")
-    image = models.ImageField(upload_to='posts/')
+    url = models.ImageField(upload_to='posts/')

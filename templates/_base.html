@@ -23,6 +23,7 @@
                     <a class="p-2 text-dark" href="{% url 'home' %}">Home</a>
                     <a class="p-2 text-dark" href="{% url 'about' %}">About</a>
                     <a class="p-2 text-dark" href="{% url 'blog:list' %}">Blog</a>
+                    <a class="p-2 text-dark" href="{% url 'sewing:list' %}">Sewing</a>
                     {% if user.is_authenticated %}
                         <a class="p-2 text-dark" href="{% url 'account_logout' %}">Log Out</a>
                     {% else %}

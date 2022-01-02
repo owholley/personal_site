@@ -13,7 +13,7 @@
         {% for image in post.images.all %}
             <div>
                 <hr/>
-                <img class="img-fluid"src="{{ image.image.url }}" alt="{{ image.name }}">
+                <img class="img-fluid"src="{{ image.url.url }}" alt="{{ image.name }}">
             </div
         {% endfor %}
     {% endif %}
