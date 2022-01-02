@@ -17,3 +17,16 @@ class Post(TimeStampedModel):
 
     def get_absolute_url(self):
         return reverse('blog:detail', kwargs={"slug": self.slug})
+
+
+class Image(TimeStampedModel):
+    name = models.CharField(max_length=200)
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name="images")
+    slug = AutoSlugField(
+        "Image Address",
+        always_update=False,
+        populate_from="name")
+    image = models.ImageField(upload_to='posts/')
