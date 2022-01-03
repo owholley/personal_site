@@ -28,3 +28,6 @@ class Image(TimeStampedModel):
         always_update=False,
         populate_from='name')
     url = models.ImageField(upload_to='sewing/')
+
+    def __str__(self):
+        return self.name
