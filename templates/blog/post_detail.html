@@ -3,10 +3,21 @@
 {% block title %}{{ post.title }}{% endblock title %}
 
 {% block content %}
+
     <div class="post-detail">
         <h2><a href="">{{ post.title }}</a></h2>
-        <h6><a href="{% url 'about' %}">{{ post.author }}</a></h6>
-        <p>{{ post.content }}</p>
+        <div class="post-author-heading">
+            <h6><a href="{% url 'about' %}">{{ post.author }}</a></h6>
+            <h6> on {{ post.created }}</h6>
+            <!-- If the post has been updated, display the date of the most recent update in red -->
+            {% if post.created != post.modified %}
+                <h6 class="updated">Updated {{ post.modified }}</h6>
+            {% endif %}
+            <hr/>
+        </div>
+        <div class="post-content">
+            {{ post.content|safe }}
+        </div>  
     </div>
 
     {% if post.images.all %}

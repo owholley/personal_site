@@ -19,6 +19,15 @@
     {% for post in post_list %}
         <div>
             <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+            <div class="post-author-heading">
+                <h4><a href="{% url 'about' %}">{{ post.author }}</a></h4>
+                <h6>on {{ post.created }}</h6>
+                <!-- If the post has been updated, display the date of the most recent update in red --> 
+                {% if post.created != post.modified %}
+                    <h6 class="updated">Updated {{ post.modified }}</h6>
+                {% endif %}
+            </div>
+            <hr/>
         </div>
     {% endfor %}
 {% endblock content %}

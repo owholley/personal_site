@@ -19,6 +19,24 @@ h1 {
     height: 100vh;
 }
 
-.img-fluid {
-    height: 254px;
+
+/* Setting the blog post author heading styling */
+.post-author-heading h4, h6 {
+    display: inline-block;
+}
+
+.updated {
+    color: red;
+}
+
+p img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.post-content {
+    padding-bottom: 3em;
 }

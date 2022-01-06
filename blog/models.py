@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import reverse
 
 from autoslug import AutoSlugField
+from ckeditor.fields import RichTextField
 from model_utils.models import TimeStampedModel
 
 class Post(TimeStampedModel):
@@ -10,7 +11,7 @@ class Post(TimeStampedModel):
     slug = AutoSlugField("Post Address", always_update=False, populate_from="title")
     author = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE)
-    content = models.TextField(blank=False)
+    content = RichTextField(blank=False)
 
     def __str__(self):
         return self.title
