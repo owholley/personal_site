@@ -3,7 +3,7 @@ from django.contrib import admin
 
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
-from .models import Post, Image
+from .models import Post
 
 
 class PostAdminForm(forms.ModelForm):
@@ -13,14 +13,8 @@ class PostAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
-class ImageInline(admin.TabularInline):
-    model = Image
-
-
 class PostAdmin(admin.ModelAdmin):
-    inlines = [
-        ImageInline,
-    ]
+
     list_display = ("title", "author", "created", "modified",)
 
     form = PostAdminForm

@@ -17,6 +17,7 @@ h1 {
 
 .container {
     height: 100vh;
+    padding-top: 1em;
 }
 
 
@@ -29,6 +30,7 @@ h1 {
     color: red;
 }
 
+/* Centering images in the blog post uploaded through rich text editor */
 p img {
     margin-left: auto;
     margin-right: auto;
@@ -37,6 +39,7 @@ p img {
     height: auto;
 }
 
+/* Adding some space at the bottom of a post */
 .post-content {
     padding-bottom: 3em;
 }
