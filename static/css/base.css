@@ -22,7 +22,7 @@ h1 {
 
 
 /* Setting the blog post author heading styling */
-.post-author-heading h4, h6 {
+.post-author-heading h6 {
     display: inline-block;
 }
 
