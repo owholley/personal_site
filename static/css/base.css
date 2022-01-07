@@ -4,19 +4,24 @@ h1 {
 
 .product-row {
     height: 100%;
+    padding: 10px;
 }
 
-.scroll-col {
+.product-col {
+    padding: 1em;
+}
+
+/* .scroll-col {
     height: 100%;
     overflow-y: scroll;
-}
+} */
 
 ::-webkit-scrollbar {
     display: none;
 }
 
 .container {
-    height: 100vh;
+    height: 100%;
     padding-top: 1em;
 }
 
@@ -42,4 +47,9 @@ p img {
 /* Adding some space at the bottom of a post */
 .post-content {
     padding-bottom: 3em;
+}
+
+.pagination {
+    /* Center the pagination */
+    justify-content: center;
 }

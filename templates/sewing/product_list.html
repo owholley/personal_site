@@ -3,14 +3,52 @@
 {% block title %}Sewing List{% endblock title %}
 
 {% block content %}
+    
+    <!-- Display the product list -->
     <div class="row product-row">
+        
             {% for product in product_list %}
-                <div class="col-sm-4">
+                {% comment %} {% if forloop.first %}<div class="row">{% endif %} {% endcomment %}
+                <div class="col-sm-4 product-col">
                     <a href="{% url 'sewing:detail' product.slug %}">
-                        <img class="img-fluid" src="{{ product.images.first.url.url }}" alt="{{ product.images.first.name }}">
+                        <img class="img-fluid" style="height:200px;" src="{{ product.images.first.url.url }}" alt="{{ product.images.first.name }}">
                         <h2>{{ product.name }}</h2>
                     </a>
                 </div>
+                {% comment %} {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %} {% endcomment %}
+                {% comment %} {% if forloop.last %}</div>{% endif %} {% endcomment %}
+                
             {% endfor %}
+
     </div>
+
+
+    <!-- Pagination -->
+    <nav class="pagination">
+        <ul class="pagination">
+
+            {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+            {% endif %}
+
+            {% for i in paginator.page_range %}
+                {% if page_obj.number == i %}
+                    <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only">(current)</span></span></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+    
+
 {% endblock content %}

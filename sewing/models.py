@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import mark_safe
 from django.urls import reverse
 
 from autoslug import AutoSlugField
@@ -13,8 +14,8 @@ class Product(TimeStampedModel):
     def __str__(self):
         return self.name
 
-    # def get_absolute_url(self):
-    #     return reverse('sewing:detail', kwargs={"slug": self.slug})
+    def get_absolute_url(self):
+        return reverse('sewing:detail', kwargs={"slug": self.slug})
 
 
 class Image(TimeStampedModel):
@@ -31,3 +32,10 @@ class Image(TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+    @property
+    def thumbnail_preview(self):
+        if self.url:
+            return mark_safe('<img src="{}"  width="auto" height="200" />'.format(self.url.url))
+        return ""
+
