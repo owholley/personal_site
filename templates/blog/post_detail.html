@@ -5,7 +5,9 @@
 {% block content %}
 
     <div class="post-detail">
+
         <h2><a href="">{{ post.title }}</a></h2>
+        
         <div class="post-author-heading">
             <h6><a href="{% url 'about' %}">{{ post.author }}</a></h6>
             <h6> on {{ post.created }}</h6>
@@ -13,8 +15,16 @@
             {% if post.created != post.modified %}
                 <h6 class="updated">Updated {{ post.modified }}</h6>
             {% endif %}
-            <hr/>
         </div>
+
+        <div>
+            {% for tag in post.tag_set.all %}
+                <span><a class="btn btn-primary" href="{% url 'tags:posts_by_tag' tag.slug %}">{{ tag.title }}</a></span>
+            {% endfor %}
+        </div>
+    
+        <hr/>
+
         <div class="post-content">
             {{ post.content|safe }}
         </div>  

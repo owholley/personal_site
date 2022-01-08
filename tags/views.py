@@ -13,7 +13,7 @@ class TagListView(ListView):
 
 class TagPostListView(ListView):
 
-    context_object_name = 'posts'
+    context_object_name = 'post_list'
     template_name = 'tags/posts_by_tag.html'
 
     def get_queryset(self):
