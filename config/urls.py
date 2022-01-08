@@ -22,6 +22,9 @@ urlpatterns = [
     # Django admin
     path('admin/', admin.site.urls),
 
+    # Third party Apps
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+
     # User management
     path('accounts/', include('allauth.urls')),
 
@@ -30,5 +33,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('sewing/', include('sewing.urls', namespace='sewing')),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('tags/', include('tags.urls', namespace='tags')),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

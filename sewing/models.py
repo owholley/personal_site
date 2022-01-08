@@ -10,6 +10,8 @@ class Product(TimeStampedModel):
     slug = AutoSlugField("Product Address", always_update=False, populate_from='name')
     description = models.TextField(blank=False)
 
+    class Meta:
+        ordering = ['-modified']
 
     def __str__(self):
         return self.name

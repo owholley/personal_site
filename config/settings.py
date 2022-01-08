@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'blog',
     'pages',
     'sewing',
+    'tags',
     
 ]
 

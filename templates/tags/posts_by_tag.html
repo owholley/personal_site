@@ -1,0 +1,18 @@
+{% extends "_base.html" %}
+
+{% block title %}{{ tag.title }}{% endblock title %}
+
+{% block content %}
+
+    <h1>{{ tag.title }}</h1>
+
+    <p>{{ tag.description|linebreaks }}</p>
+
+    {% for post in posts %}
+        <div>
+            <h2><a href="#">{{ post.title }}</a></h2>
+        </div>
+    {% endfor %}
+
+
+{% endblock content %}
