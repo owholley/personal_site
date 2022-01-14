@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block content %}
+    <div class="row">
+        <div class="span6">
+            <h1>Send an Email</h1>
+            {% csrf_token %}
+            {% crispy form form.helper %}
+        </div>
+    </div>
+{% endblock content %}
+
+{% block extrajs %}
+    <script src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#id_name').focus()
+        });
+    </script>
+{% endblock extrajs %}

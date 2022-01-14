@@ -48,8 +48,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'allauth',
     'allauth.account',
+    'captcha',
     'ckeditor',
     'ckeditor_uploader',
+    'floppyforms',
 
     # Local
     'accounts',
@@ -195,3 +197,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Email Settings
 # set default email for new user sign up confirmation email
 DEFAULT_FROM_EMAIL = 'admin@owenwholley.com'
+
+
+# Recaptcha settings 
+# RECAPTCHA_PUBLIC_KEY_V3 = '6LctrxIeAAAAACfoO9F13C9gakQOP1TFaON0tLUv'
+# RECAPTCHA_PRIVATE_KEY_V3 = '6LctrxIeAAAAAG42fGM_r2K1GOLhli0PF8j_bpsJ'
+
+# RECAPTCHA_PUBLIC_KEY_v2_invis = '6LfAvhIeAAAAACbxtfmHl7eKy4_BhTyjRxS9OFs'
+# RECAPTCHA_PRIVATE_KEY_v2_invis = '6LfAvhIeAAAAAOhKwNLPPGqGFEkZAJjjoGtbiVK9'
+
+RECAPTCHA_PUBLIC_KEY = '6LdTwRIeAAAAAGhgc7uIwaieUmamntw1DHHQseVM'
+RECAPTCHA_PRIVATE_KEY = '6LdTwRIeAAAAAFna9-rUf_Ys57l1J65u1UFWorcS'
