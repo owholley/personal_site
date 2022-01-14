@@ -2,6 +2,10 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse, resolve
 
+import pytest
+
+pytestmark = pytest.mark.django_db
+
 
 class CustomUserTests(TestCase):
 

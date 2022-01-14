@@ -1,7 +1,11 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 
+import pytest
+
 from ..models import Post
+
+pytestmark = pytest.mark.django_db
 
 class PostModelTest(TestCase):
 

@@ -3,3 +3,5 @@
 *.pyc
 
 /test_html
+
+.coverage

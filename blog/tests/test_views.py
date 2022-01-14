@@ -2,7 +2,11 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-from ..models import Image, Post
+import pytest
+
+from ..models import Post
+
+pytestmark = pytest.mark.django_db
 
 
 class PostViewTest(TestCase):
@@ -20,12 +24,6 @@ class PostViewTest(TestCase):
             title='Test Post 1',
             author = self.user,
             content = 'This is a test post. This content is meaningless.',
-        )
-
-        self.image = Image.objects.create(
-            name='Test Image',
-            post=self.post,
-            image='test.jpg'
         )
 
     # Post Create
