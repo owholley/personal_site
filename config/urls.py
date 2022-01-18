@@ -34,5 +34,6 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace='blog')),
     path('sewing/', include('sewing.urls', namespace='sewing')),
     path('tags/', include('tags.urls', namespace='tags')),
+    path('contact/', include('contact.urls', namespace='contact')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
