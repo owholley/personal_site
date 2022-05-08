@@ -203,3 +203,7 @@ DEFAULT_FROM_EMAIL = 'admin@owenwholley.com'
 # Recaptcha settings 
 RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
+
+# Deployment Security Settings
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
