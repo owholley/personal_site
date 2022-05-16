@@ -1,5 +1,5 @@
 # Personal Site
-This is my personal site, displaying my web development skills. I've built some features into this site that I would like to extend in the future. It consists of a Django project with minimal extras, essentially just Postgres, some HTML/CSS, and a touch of JavaScript. 
+This is my personal site, displaying my web development skills. I've built some features into this site that I would like to extend in the future. It consists of a Django project with minimal extras, essentially just Postgres, some HTML/CSS, and a touch of JavaScript. You can check it out at https://owenwholley.com!
 
 The site is lives on a Linux server, publicly available on a DigitalOcean virtual machine, and available locally for testing on a Raspberry Pi.
 
