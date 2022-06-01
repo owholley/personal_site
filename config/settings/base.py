@@ -171,6 +171,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+# Sets up digital ocean spaces cloud storage
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET')
@@ -179,8 +180,15 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400'
 }
 AWS_LOCATION = ''
+# AWS_DEFAULT_ACL = 'public-read'
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# enables django-ckeditor to work with s3 storage
+# AWS_QUERYSTRING_AUTH = False
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+
+
 
 # sets the url used to reference static files
 # STATIC_URL = 'static/'
