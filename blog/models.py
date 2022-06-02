@@ -12,7 +12,8 @@ class Post(TimeStampedModel):
     author = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE)
     description = models.TextField(blank=True)
-    content = RichTextField(blank=False)
+    # content = RichTextField(blank=False)
+    content = models.TextField(blank=False)
 
     class Meta:
         ordering = ['-modified']

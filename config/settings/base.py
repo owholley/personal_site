@@ -179,37 +179,40 @@ AWS_S3_ENDPOINT_URL = 'https://nyc3.digitaloceanspaces.com'
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400'
 }
-AWS_LOCATION = ''
-# AWS_DEFAULT_ACL = 'public-read'
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
+AWS_STATIC_LOCATION = 'static'
+AWS_DEFAULT_ACL = 'public-read'
+STATIC_URL = '{}/{}/'.format(AWS_S3_ENDPOINT_URL, AWS_STATIC_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_REGION_NAME = 'nyc3'
 
 # enables django-ckeditor to work with s3 storage
 # AWS_QUERYSTRING_AUTH = False
-CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
-
+# CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 
 # sets the url used to reference static files
 # STATIC_URL = 'static/'
 
 # location of static files in local development
-STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
+STATICFILES_DIRS = (str(BASE_DIR.joinpath('static-local')),)
 
 # location of static files for production
 # STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
-STATIC_ROOT = 'https://owenwholley.nyc3.digitaloceanspaces.com'
+STATIC_ROOT = 'static/'
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
 ## MEDIA SETTINGS
+AWS_MEDIA_LOCATION = 'media'
+MEDIA_URL = '{}/{}/'.format(AWS_S3_ENDPOINT_URL, AWS_MEDIA_LOCATION)
+MEDIA_ROOT = 'media/'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
-
-CKEDITOR_UPLOAD_PATH = "uploads/"
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

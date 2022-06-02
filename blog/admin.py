@@ -1,13 +1,13 @@
 from django import forms
 from django.contrib import admin
 
-from ckeditor_uploader.widgets import CKEditorUploadingWidget
+# from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 from .models import Post
 
 
 class PostAdminForm(forms.ModelForm):
-    content = forms.CharField(widget=CKEditorUploadingWidget())
+    # content = forms.CharField(widget=CKEditorUploadingWidget())
     class Meta:
         model = Post
         fields = '__all__'
