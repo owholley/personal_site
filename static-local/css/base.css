@@ -22,9 +22,12 @@ h1 {
 
 .container {
     height: 100%;
-    padding-top: 1em;
+    /* padding-top: 1em; */
 }
 
+.about {
+    padding-top: 1em;
+}
 
 /* Setting the blog post author heading styling */
 .post-author-heading h6 {
@@ -52,4 +55,8 @@ p img {
 .pagination {
     /* Center the pagination */
     justify-content: center;
+}
+
+.banner-image {
+    opacity: 0.4;
 }

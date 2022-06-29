@@ -1,8 +1,14 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
+from sewing.models import Product
 
-
-class HomePageView(TemplateView):
+class HomePageView(ListView):
+    model = Product
     template_name = 'home.html'
+    context_object_name = 'product_list'
+
+    def get_queryset(self, **kwargs):
+        qs = super().get_queryset(**kwargs)
+        return qs
 
 
 class AboutPageView(TemplateView):

@@ -4,11 +4,58 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-    <div class="row min-vh-100 justify-content-center align-items-center">
-        <div class="col-sm">
-            <h1 class="text-center">Homepage</h1>
+    
+    <div>    
+        <!-- <div class="row banner">
+                <div class="banner-image">
+                    <h2>Owen Wholley Mfg.</h2>
+                </div>
+        </div> -->
+        <div class="row justify-content-center align-items-center">
+            <img class="img-fluid banner-image" src="{% static 'images/dab-lab3.jpg' %}" alt="Dab Lab picture"> 
+            
         </div>
+        
+        <div class="container-fluid">
+            <div class="row">
+                <h1>Events</h1>
+            </div>
+
+            <div class="row ">
+                <div class="col-sm">
+                    <h4><a href="https://www.facebook.com/HarrisonCommunityDay">Harrison Community Fair</a></h4>
+                </div>
+                <div class="col-sm">
+                    <h6>Saturday, July 9th 2022</h6>
+                </div>
+                <div class="col-sm">
+                    <h6>Harrison, ME</h6>
+                </div> 
+            </div>
+
+            <hr/>
+            <div class="row">
+                <h1>Products</h1>
+            </div>
+            <div class="row product-row">
+                    {% for product in product_list %}
+                        <div class="col-sm-4 product-col">
+                            <a href="{% url 'sewing:detail' product.slug %}">
+                                <img class="img-fluid" style="height:200px;" src="{{product.images.first.url.url }}" alt="{{ product.imgaes.first.name }}">
+                                <h2>{{ product.name }}</h2>
+                            </a>
+                        </div> 
+                    {% endfor %}
+            </div>
+                
+            <div class="row">
+                <a class="btn btn-primary" href="{% url 'sewing:list'  %}" role="button">See More</a>
+            </div>
+        </div>
+        
+        
     </div>
     
 {% endblock content %}
 
+<!-- <div class="row min-vh-100 justify-content-center align-items-center"></div> -->
