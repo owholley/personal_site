@@ -11,7 +11,7 @@
                 {% comment %} {% if forloop.first %}<div class="row">{% endif %} {% endcomment %}
                 <div class="col-sm-4 product-col">
                     <a href="{% url 'sewing:detail' product.slug %}">
-                        <img class="img-fluid" style="height:200px;" src="{{ product.images.first.url.url }}" alt="{{ product.images.first.name }}">
+                        <img class="img-thumbnail" style="height:200px;" src="{{ product.images.first.url.url }}" alt="{{ product.images.first.name }}">
                         <h2>{{ product.name }}</h2>
                     </a>
                 </div>
