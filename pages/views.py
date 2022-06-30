@@ -8,7 +8,7 @@ class HomePageView(ListView):
 
     def get_queryset(self, **kwargs):
         qs = super().get_queryset(**kwargs)
-        return qs
+        return qs.filter(category='dog')
 
 
 class AboutPageView(TemplateView):

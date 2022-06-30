@@ -6,9 +6,19 @@ from autoslug import AutoSlugField
 from model_utils.models import TimeStampedModel
 
 class Product(TimeStampedModel):
+
+
+    class Category(models.TextChoices):
+        UNSPECIFIED = "unspecified", "Unspecified"
+        DOG = "dog", "Dog"
+        PEOPLE = "people", "People"
+
     name = models.CharField(max_length=200)
-    slug = AutoSlugField("Product Address", always_update=False, populate_from='name')
+    slug = AutoSlugField("Product Address", always_update=False,
+        populate_from='name')
     description = models.TextField(blank=False)
+    category = models.CharField("Category", max_length=20,
+        choices=Category.choices, default=Category.UNSPECIFIED)
 
     class Meta:
         ordering = ['-modified']
@@ -22,14 +32,10 @@ class Product(TimeStampedModel):
 
 class Image(TimeStampedModel):
     name = models.CharField(max_length=100)
-    product = models.ForeignKey(
-        Product,
-        on_delete=models.CASCADE,
-        related_name="images")
-    slug = AutoSlugField(
-        "Image Address",
-        always_update=False,
-        populate_from='name')
+    product = models.ForeignKey(Product, 
+        on_delete=models.CASCADE, related_name="images")
+    slug = AutoSlugField("Image Address",
+        always_update=False, populate_from='name')
     url = models.ImageField(upload_to='sewing/')
 
     def __str__(self):

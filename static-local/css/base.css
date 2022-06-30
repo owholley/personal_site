@@ -60,3 +60,7 @@ p img {
 .banner-image {
     opacity: 0.4;
 }
+
+.fair-thumbnail {
+    width: 200px;
+}
