@@ -20,13 +20,9 @@ h1 {
     display: none;
 }
 
-.container {
-    height: 100%;
-    /* padding-top: 1em; */
-}
 
 .about {
-    padding-top: 1em;
+    padding-top: 2em;
 }
 
 /* Setting the blog post author heading styling */
@@ -63,4 +59,18 @@ p img {
 
 .fair-thumbnail {
     width: 200px;
+}
+
+.container-fluid {
+    background-color: black; 
+}
+
+.container {
+    background-color: rgb(143, 169, 253);
+    padding-bottom: 5em;
+}
+
+.footer {
+    text-align: center;
+    padding: 5em;
 }

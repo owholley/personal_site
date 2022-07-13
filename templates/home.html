@@ -5,7 +5,7 @@
 
 {% block content %}
     
-    <div>    
+    <div class="container-fluid">    
         <!-- <div class="row banner">
                 <div class="banner-image">
                     <h2>Owen Wholley Mfg.</h2>
@@ -16,7 +16,8 @@
             
         </div>
         
-        <div class="container mb-4 mt-2">
+        <div class="container">
+            
             <div class="row">
                 <h1>Events</h1>
             </div>
@@ -37,23 +38,26 @@
             </div>
             
             <hr/>
+
             <div class="row">
                 <h1>Products</h1>
             </div>
+            
             <div class="row product-row">
-                    {% for product in product_list %}
-                        <div class="col-sm-4 product-col">
-                            <a href="{% url 'sewing:detail' product.slug %}">
-                                <img class="img-thumbnail" style="height:200px;" src="{{product.images.first.url.url }}" alt="{{ product.imgaes.first.name }}">
-                                <h2>{{ product.name }}</h2>
-                            </a>
-                        </div> 
-                    {% endfor %}
+                {% for product in product_list %}
+                    <div class="col-sm-4 product-col">
+                        <a href="{% url 'sewing:detail' product.slug %}">
+                            <img class="img-fluid rounded" style="height:200px;" src="{{product.images.first.url.url }}" alt="{{ product.imgaes.first.name }}">
+                            <h2>{{ product.name }}</h2>
+                        </a>
+                    </div> 
+                {% endfor %}
             </div>
                 
             <div class="row ml-2">
                 <a class="btn btn-primary" href="{% url 'sewing:list'  %}" role="button">See More</a>
             </div>
+            
         </div>
         
         

@@ -3,73 +3,76 @@
 {% block title %}Blog{% endblock title %}
 
 {% block content %}
-
-    {% if user.is_staff %}
-        <h3>Staff Menu</h3>
-
-        <a class="btn btn-success" href="{% url 'blog:create' %}" role="button">
-            Create Post
-        </a>
-
-        <hr/>
-        
-    {% endif %}
     
-    
-    {% for post in post_list %}
-        <div>
+    <div class="container">
 
-            <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-            
-            <div class="post-author-heading">
-                <h6><a href="{% url 'about' %}">{{ post.author }}</a></h6>
-                <h6>on {{ post.created }}</h6>
+        {% if user.is_staff %}
+            <h3>Staff Menu</h3>
 
-                <!-- If the post has been updated, display the date of the most recent update in red --> 
-                {% if post.created != post.modified %}
-                    <h6 class="updated">Updated {{ post.modified }}</h6>
-                {% endif %}
-            </div>
-                      
-            <div>
-                {% for tag in post.tag_set.all %}
-                    <a class="btn btn-primary" href="{% url 'tags:posts_by_tag' tag.slug %}">{{ tag.title }}</a>
-                {% endfor %}
-            </div>
-            
-            <p>{{ post.description|linebreaks }}</p>
-           
+            <a class="btn btn-success" href="{% url 'blog:create' %}" role="button">
+                Create Post
+            </a>
+
             <hr/>
-
-        </div>
-    {% endfor %}
-
-    <!-- Pagination -->
-    <nav class="pagination">
-        <ul class="pagination">
-
-            {% if page_obj.has_previous %}
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-            {% else %}
-                <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
-            {% endif %}
             
-            {% for i in paginator.page_range %}
-                {% if page_obj.number == i %}
-                    <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only">(current)</span></span></li>
+        {% endif %}
+        
+        
+        {% for post in post_list %}
+            <div>
+
+                <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                
+                <div class="post-author-heading">
+                    <h6><a href="{% url 'about' %}">{{ post.author }}</a></h6>
+                    <h6>on {{ post.created }}</h6>
+
+                    <!-- If the post has been updated, display the date of the most recent update in red --> 
+                    {% if post.created != post.modified %}
+                        <h6 class="updated">Updated {{ post.modified }}</h6>
+                    {% endif %}
+                </div>
+                        
+                <div>
+                    {% for tag in post.tag_set.all %}
+                        <a class="btn btn-primary" href="{% url 'tags:posts_by_tag' tag.slug %}">{{ tag.title }}</a>
+                    {% endfor %}
+                </div>
+                
+                <p>{{ post.description|linebreaks }}</p>
+            
+                <hr/>
+
+            </div>
+        {% endfor %}
+
+        <!-- Pagination -->
+        <nav class="pagination">
+            <ul class="pagination">
+
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
                 {% else %}
-                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
                 {% endif %}
-            {% endfor %}
+                
+                {% for i in paginator.page_range %}
+                    {% if page_obj.number == i %}
+                        <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only">(current)</span></span></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
 
-            {% if page_obj.has_next %}
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-            {% else %}
-                <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
-            {% endif %}
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                {% else %}
+                    <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                {% endif %}
 
-        </ul>
-    </nav>
+            </ul>
+        </nav>
+    </div>
 
 
 {% endblock content %}

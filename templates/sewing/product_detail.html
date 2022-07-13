@@ -3,27 +3,32 @@
 {% block title %}{{ product.name }}{% endblock title %}
 
 {% block content %}
+
+    <div class="container">
     
-    <div class="row product-row">
-        <!-- Picture Column -->
-        <div class="scroll-col col-sm-8">
-            <div class="row">
-                <div class="col-sm">
-                    {% for image in product.images.all %}
-                        <!-- first row -->
-                        <img class=" p-2 img-fluid" src="{{ image.url.url }}" alt="{{ image.name }}">                    
-                    {% endfor %}
+        <div class="row product-row">
+            <!-- Picture Column -->
+            <div class="scroll-col col-sm-8">
+                <div class="row">
+                    <div class="col-sm">
+                        {% for image in product.images.all %}
+                            <!-- first row -->
+                            <div class="p-2">
+                                <img class="img-fluid rounded" src="{{ image.url.url }}" alt="{{ image.name }}">
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Words column -->
-        <div class="col-sm-4">
-            <div class="row">
-                <div class="col-sm">
-                    <h1 class="text-center">{{ product.name }}</h1>
-                    <p class="text-center">{{ product.description|linebreaks }}</p>
-                    <h5 class="text-center">Hand-crafted in the USA.</h5>
+            <!-- Words column -->
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm">
+                        <h1 class="text-center">{{ product.name }}</h1>
+                        <p class="text-center">{{ product.description|linebreaks }}</p>
+                        <h5 class="text-center">Hand-crafted in the USA.</h5>
+                    </div>
                 </div>
             </div>
         </div>
