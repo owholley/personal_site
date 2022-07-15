@@ -20,11 +20,6 @@ h1 {
     display: none;
 }
 
-
-.about {
-    padding-top: 2em;
-}
-
 /* Setting the blog post author heading styling */
 .post-author-heading h6 {
     display: inline-block;
@@ -73,4 +68,10 @@ p img {
 .footer {
     text-align: center;
     padding: 5em;
+}
+
+.double-space {
+    line-height: 2;
+    position: relative;
+    top: -0.5em;
 }
